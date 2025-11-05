@@ -1,0 +1,177 @@
+/* Custom styles for YouTube MP4 Extractor */
+
+/* Smooth transitions */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Custom button hover effects */
+.btn {
+    border-radius: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card hover effects */
+.card {
+    border-radius: 0.75rem;
+    border: 1px solid var(--bs-border-color);
+}
+
+.card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Form input focus */
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Loading spinner animation */
+.spinner-border {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Format cards */
+#formatsList .card {
+    border-left: 4px solid var(--bs-primary);
+    background: var(--bs-body-bg);
+}
+
+#formatsList .card:hover {
+    border-left-color: var(--bs-info);
+    background: var(--bs-secondary-bg);
+}
+
+/* Thumbnail styling */
+#thumbnailCol img {
+    object-fit: cover;
+    border: 2px solid var(--bs-border-color);
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 0.75rem;
+    border: none;
+}
+
+/* Toast notifications */
+.toast {
+    background: var(--bs-dark);
+    color: var(--bs-light);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+}
+
+/* Video info section */
+.video-info {
+    background: var(--bs-secondary-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+/* Badge styling */
+.badge {
+    font-size: 0.75em;
+    padding: 0.35em 0.65em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    #thumbnailCol {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .btn-group-sm > .btn, .btn-sm {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Tool cards styling */
+.tool-card {
+    transition: all 0.3s ease;
+    border: 1px solid var(--bs-border-color);
+}
+
+.tool-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--bs-primary);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    stroke-width: 1.5;
+}
+
+/* Video result cards styling */
+.video-result-card {
+    transition: background-color 0.2s ease;
+}
+
+.video-result-card:hover {
+    background-color: var(--bs-secondary-bg);
+}
+
+.video-result-card:last-child {
+    border-bottom: none !important;
+}
+
+.video-title a:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Search page specific styling */
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* Dark theme enhancements */
+[data-bs-theme="dark"] {
+    --bs-body-bg: #0d1117;
+    --bs-body-color: #f0f6fc;
+    --bs-border-color: #21262d;
+    --bs-secondary-bg: #161b22;
+}
+
+[data-bs-theme="dark"] .card {
+    background: var(--bs-secondary-bg);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .form-control {
+    background: var(--bs-secondary-bg);
+    border-color: var(--bs-border-color);
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] .form-control:focus {
+    background: var(--bs-secondary-bg);
+    border-color: var(--bs-primary);
+    color: var(--bs-body-color);
+}
+
+/* Success state */
+.success-glow {
+    box-shadow: 0 0 20px rgba(25, 135, 84, 0.3);
+}
+
+/* Error state */
+.error-glow {
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.3);
+}

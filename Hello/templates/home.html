@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hirateta-tube</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-10 text-center">
+                <h1 class="display-4 mb-3">
+                    <i data-feather="play-circle" class="me-3"></i>
+                    Hirateta-tube
+                </h1>
+                <p class="lead text-muted">
+                    YouTubeを直接再生・ダウンロードできる動画ツール
+                </p>
+            </div>
+        </div>
+
+        <!-- Tool Cards -->
+        <div class="row justify-content-center">
+            <!-- YouTube URL Player -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 tool-card">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i data-feather="video" class="feature-icon text-primary"></i>
+                        </div>
+                        <h5 class="card-title">URLから再生</h5>
+                        <p class="card-text text-muted">
+                            YouTubeのURLを入力して、直接MP4リンクを取得し新しいタブで再生
+                        </p>
+                        <a href="{{ url_for('video_extractor') }}" class="btn btn-primary">
+                            <i data-feather="external-link" class="me-2"></i>
+                            開く
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search and Play -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 tool-card">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i data-feather="search" class="feature-icon text-info"></i>
+                        </div>
+                        <h5 class="card-title">検索して再生</h5>
+                        <p class="card-text text-muted">
+                            キーワードで動画を検索してInvidiousで直接再生
+                        </p>
+                        <a href="{{ url_for('search_page') }}" class="btn btn-info">
+                            <i data-feather="external-link" class="me-2"></i>
+                            開く
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auto Download -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 tool-card">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i data-feather="download" class="feature-icon text-success"></i>
+                        </div>
+                        <h5 class="card-title">自動ダウンロード</h5>
+                        <p class="card-text text-muted">
+                            YouTubeのURLを入力して、最高画質で自動ダウンロード
+                        </p>
+                        <a href="{{ url_for('auto_download_page') }}" class="btn btn-success">
+                            <i data-feather="external-link" class="me-2"></i>
+                            開く
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Features Section -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">
+                            <i data-feather="info" class="me-2"></i>
+                            このツールについて
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <h6 class="fw-bold">
+                                    <i data-feather="zap" class="me-2 text-warning"></i>
+                                    高速処理
+                                </h6>
+                                <p class="small text-muted mb-0">
+                                    軽量設計でReplitなどのクラウド環境でもスムーズに動作
+                                </p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h6 class="fw-bold">
+                                    <i data-feather="shield" class="me-2 text-success"></i>
+                                    安全性
+                                </h6>
+                                <p class="small text-muted mb-0">
+                                    サーバー上でURLを処理し、安全に動画情報を取得
+                                </p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <h6 class="fw-bold">
+                                    <i data-feather="smartphone" class="me-2 text-info"></i>
+                                    レスポンシブ
+                                </h6>
+                                <p class="small text-muted mb-0">
+                                    デスクトップ、タブレット、スマートフォンに対応
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 text-center">
+                <p class="text-muted">
+                    <small>
+                        <i data-feather="heart" class="me-1"></i>
+                        個人利用専用ツールです。著作権とYouTubeの利用規約を遵守してご利用ください。
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        // Add hover effects to tool cards
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

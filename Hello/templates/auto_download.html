@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自動ダウンロード - Hirateta-tube</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-8 text-center">
+                <div class="mb-3">
+                    <a href="{{ url_for('home') }}" class="btn btn-outline-secondary btn-sm">
+                        <i data-feather="arrow-left" class="me-2"></i>
+                        ホーム画面に戻る
+                    </a>
+                </div>
+                <h1 class="display-4 mb-3">
+                    <i data-feather="download" class="me-3"></i>
+                    自動ダウンロード
+                </h1>
+                <p class="lead text-muted">
+                    YouTubeのURLを入力すると最高画質で自動的にダウンロードが開始されます
+                </p>
+            </div>
+        </div>
+
+        <!-- Main Form -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form id="autoDownloadForm">
+                            <div class="mb-3">
+                                <label for="youtubeUrl" class="form-label">
+                                    <i data-feather="link" class="me-2"></i>
+                                    YouTube URL
+                                </label>
+                                <input 
+                                    type="url" 
+                                    class="form-control form-control-lg" 
+                                    id="youtubeUrl" 
+                                    placeholder="https://www.youtube.com/watch?v=..."
+                                    required
+                                >
+                                <div class="form-text">
+                                    YouTubeのURLを貼り付けると最高画質で自動ダウンロードが開始されます
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success btn-lg" id="downloadBtn">
+                                    <i data-feather="download" class="me-2"></i>
+                                    自動ダウンロード開始
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="row justify-content-center mt-4" style="display: none;">
+            <div class="col-md-8 col-lg-6">
+                <div class="card">
+                    <div class="card-body text-center py-5">
+                        <div class="spinner-border text-success mb-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <h5>動画情報を取得中...</h5>
+                        <p class="text-muted mb-0">しばらくお待ちください</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="errorState" class="row justify-content-center mt-4" style="display: none;">
+            <div class="col-md-8 col-lg-6">
+                <div class="alert alert-danger" role="alert">
+                    <i data-feather="alert-circle" class="me-2"></i>
+                    <span id="errorMessage">エラーが発生しました</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success State -->
+        <div id="successState" class="row justify-content-center mt-4" style="display: none;">
+            <div class="col-md-8 col-lg-6">
+                <div class="card border-success">
+                    <div class="card-body text-center py-4">
+                        <div class="mb-3">
+                            <i data-feather="check-circle" class="text-success" style="width: 48px; height: 48px;"></i>
+                        </div>
+                        <h5 class="card-title text-success">ダウンロード開始</h5>
+                        <p class="card-text">
+                            <strong id="videoTitle"></strong><br>
+                            <span class="text-muted" id="videoInfo"></span>
+                        </p>
+                        <p class="text-muted mb-0">
+                            ブラウザのダウンロードフォルダを確認してください
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/auto_download.js') }}"></script>
+    
+    <script>
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
